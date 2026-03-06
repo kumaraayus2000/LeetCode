@@ -24,6 +24,11 @@ class Solution:
 
             i-=1
             j-=1
+        
+        res.reverse()
+        s= ""
+        for c in range(len(res)):
+            s = s + res[c]
 
-        return "".join(res[::-1])
+        return s
         
