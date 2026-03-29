@@ -12,19 +12,19 @@
 class Solution {
 public:
 
-    bool mirror(TreeNode* left,TreeNode* right){
-        if(left==NULL && right == NULL){
+    bool mirror(TreeNode* l1,TreeNode* l2){
+        if(l1==NULL && l2 == NULL){
             return true;
         }
-        if(left==NULL || right == NULL){
+        if(l1==NULL || l2 == NULL){
             return false;
         }
 
-        if(left->val!=right->val){
+        if(l1->val!=l2->val){
             return false;
         }
 
-        return mirror(left->left,right->right) && mirror(left->right,right->left);
+        return mirror(l1->left,l2->right) && mirror(l1->right,l2->left);
 
     }
     bool isSymmetric(TreeNode* root) {
