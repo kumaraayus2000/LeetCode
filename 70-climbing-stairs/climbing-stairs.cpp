@@ -7,7 +7,7 @@ public:
         if(n==2){
             return 2;
         }
-        vector<int> dp(n + 1, 0);
+        int dp[n+1];
         dp[1]=1;
         dp[2]=2;
 
