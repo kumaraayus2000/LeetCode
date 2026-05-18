@@ -7,8 +7,7 @@ class Solution:
 
         grid[x][y]=0
 
-        return (
-                1 
+        return (1 
                 + self.dfs(x+1,y,grid) 
                 + self.dfs(x,y+1,grid) 
                 + self.dfs(x-1,y,grid) 
