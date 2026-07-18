@@ -5,8 +5,7 @@
 #         self.next = next
 class Solution:
 
-    def merge(self, list1:Optional[ListNode], list2:Optional[ListNode]) -> Optional[ListNode]:
-        
+    def merge(self,list1:Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
         if list1 is None:
             return list2
 
@@ -19,15 +18,19 @@ class Solution:
         else:
             list2.next = self.merge(list1,list2.next)
             return list2
+        
+        
 
 
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+
         if not lists:
             return None
 
         ans = None
 
-        for lst in lists:
-            ans = self.merge(ans,lst)
+        for lis in lists:
+            ans = self.merge(ans,lis)
 
         return ans
+        
