@@ -1,30 +1,31 @@
 class Solution:
 
-    def solve(self,index,digits,mp,curr,ans):
-        if index==len(digits):
-            ans.append(curr)
+    def part(self,digits,mp,ind,current,res):
+        if ind == len(digits):
+            res.append(current)
             return
+
+        l1 = mp[digits[ind]]
+
+        for ch in l1:
+            self.part(digits,mp,ind+1,current+ch,res)
+
+    def letterCombinations(self, digits: str) -> list[str]:
         
-        letters = mp[digits[index]]
-
-        for i in range(len(letters)):
-            self.solve(index+1,digits,mp,curr+letters[i],ans)
-            
-
-    def letterCombinations(self, digits: str) -> List[str]:
-        if len(digits)==0:
+        if not digits:
             return []
+        res = []
+        mp = {
+            "2": "abc",
+            "3": "def",
+            "4": "ghi",
+            "5": "jkl",
+            "6": "mno",
+            "7": "pqrs",
+            "8": "tuv",
+            "9": "wxyz"
+        }
 
-        mp = {}
-        mp["2"] = "abc"
-        mp["3"]= "def"
-        mp["4"] = "ghi"
-        mp["5"] = "jkl"
-        mp["6"] = "mno"
-        mp["7"] = "pqrs"
-        mp["8"] = "tuv"
-        mp["9"] = "wxyz"
+        self.part(digits,mp,0,"",res)
 
-        ans = []
-        self.solve(0,digits,mp,"",ans)
-        return ans
+        return res
