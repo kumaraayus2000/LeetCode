@@ -10,13 +10,12 @@ class Node:
 class Solution:
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
         
-        if head is None:
-            return None
-
-        
         mp = {}
 
         curr = head
+
+        if head is None:
+            return head
 
         while curr:
             mp[curr] = Node(curr.val)
@@ -24,11 +23,9 @@ class Solution:
 
         curr = head
 
-
         while curr:
             mp[curr].next = mp.get(curr.next)
             mp[curr].random = mp.get(curr.random)
-            curr=curr.next
+            curr= curr.next
 
         return mp[head]
-
