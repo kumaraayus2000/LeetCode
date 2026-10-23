@@ -1,13 +1,13 @@
 class Solution:
-    def findDuplicate(self, nums: List[int]) -> int:
-        
-        mp = {}
+    def findDuplicate(self, nums: list[int]) -> int:
 
-        for i in range(len(nums)):
-            if nums[i] in mp:
-                return nums[i]
+        for num in nums:
 
-            else:
-                mp[nums[i]] = mp.get(nums[i],0) + 1
+            index = abs(num)
 
-        return -1
+            # Already visited this number
+            if nums[index] < 0:
+                return index
+
+            # Mark as visited
+            nums[index] *= -1
