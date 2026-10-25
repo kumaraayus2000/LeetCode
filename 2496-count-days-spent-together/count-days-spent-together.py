@@ -9,10 +9,9 @@ class Solution:
         month, day = map(int,date.split("-"))
 
         total = sum(days[:month-1])
+
         total+=day
-
         return total
-
 
     def countDaysTogether(self, arriveAlice: str, leaveAlice: str, arriveBob: str, leaveBob: str) -> int:
         alice_start = self.getDay(arriveAlice)
@@ -25,7 +24,7 @@ class Solution:
 
         end = min(alice_end,bob_end)
 
-        if start>end:
+        if start > end:
             return 0
 
         return end- start+1
