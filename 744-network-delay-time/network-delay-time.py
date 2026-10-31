@@ -6,13 +6,13 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
-        
         edges = collections.defaultdict(list)
+
+        minheap = [(0,k)]
 
         for u,v,w in times:
             edges[u].append((v,w))
 
-        minheap = [(0,k)]
 
         visit = set()
 
@@ -20,6 +20,7 @@ class Solution(object):
 
         while minheap:
             w1,n1 = heapq.heappop(minheap)
+
             if n1 in visit:
                 continue
 
@@ -31,5 +32,3 @@ class Solution(object):
                     heapq.heappush(minheap,(w1+w2,n2))
 
         return t if len(visit)==n else -1
-
-        
