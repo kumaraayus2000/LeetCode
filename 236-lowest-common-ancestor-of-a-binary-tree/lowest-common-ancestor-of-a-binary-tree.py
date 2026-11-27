@@ -10,13 +10,12 @@ class Solution:
         
         if root is None:
             return None
-
-        if root == p:
+            
+        if root==p:
             return root
 
-        if root == q:
+        if root ==q:
             return root
-
 
         left = self.lowestCommonAncestor(root.left,p,q)
 
@@ -27,5 +26,8 @@ class Solution:
 
         if left:
             return left
-        
+
         return right
+
+
+        
